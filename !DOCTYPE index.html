@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Session Gallery</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Collage Grid Layout */
+        .collage-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .collage-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            background-color: #fff;
+            aspect-ratio: 1 / 1; /* Makes items perfectly square for a clean grid */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover effect */
+        .collage-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .collage-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the images fill the square without distorting */
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .collage-item:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Responsive design for tablets and mobile phones */
+        @media (max-width: 768px) {
+            .collage-grid {
+                grid-template-columns: 1fr; /* Stack into a single column on smaller screens */
+                gap: 15px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Our Training in Action</h1>
+            <p>A glimpse into our interactive workspaces and tech sessions.</p>
+        </header>
+
+        <main class="collage-grid">
+            <div class="collage-item">
+                <img src="training.png" alt="Training room overview with instructor">
+            </div>
+            
+            <div class="collage-item">
+                <img src="training2.png" alt="Trainees working at dual monitor setup">
+            </div>
+            
+            <div class="collage-item">
+                <img src="training3.png" alt="Instructor presenting timeline on laptop">
+            </div>
+            
+            <div class="collage-item">
+                <img src="training5.png" alt="Trainees focused on desktop monitors">
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
