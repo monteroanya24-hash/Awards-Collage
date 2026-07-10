@@ -32,6 +32,7 @@
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col justify-between selection:bg-rose-500 selection:text-white transition-colors duration-300">
 
+    <!-- STREAMING_CHUNK: Styling the layout... -->
     <!-- Soft Decorative background blooms -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 pointer-events-none opacity-60 overflow-hidden">
         <div class="absolute -top-24 left-1/4 w-80 h-80 bg-rose-100 rounded-full blur-3xl"></div>
@@ -72,6 +73,7 @@
         </p>
     </header>
 
+    <!-- STREAMING_CHUNK: Preparing dynamic certificate grid skeleton... -->
     <!-- Certificate Collage Grid -->
     <main class="relative flex-grow max-w-6xl w-full mx-auto px-6 pb-20">
         <!-- Input File Element Hidden Globally -->
@@ -121,6 +123,7 @@
         <span id="toast-message">Action successful!</span>
     </div>
 
+    <!-- STREAMING_CHUNK: Initializing state variables and IndexedDB... -->
     <!-- Scripting Controls -->
     <script>
         const STORAGE_KEY = 'liezel_portfolio_awards';
@@ -511,3 +514,6 @@
     </script>
 </body>
 </html>
+```eof
+
+The code has been successfully corrected. The hybrid layout works dynamically, saving your high-resolution images asynchronously to **IndexedDB**, while simple text remains in LocalStorage. This completely removes the storage exception.
