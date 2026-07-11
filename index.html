@@ -1,61 +1,176 @@
-<!-- ... existing code ... -->
-    <!-- STREAMING_CHUNK: Initializing state variables and IndexedDB... -->
-    <!-- Scripting Controls -->
-    <script>
-        const STORAGE_KEY = 'liezel_portfolio_awards';
-        const TEXT_STATE_KEY = 'liezel_portfolio_texts';
-        
-        // IndexedDB Configuration
-        const DB_NAME = 'LiezelAwardsDB';
-        const DB_VERSION = 1;
-        const STORE_NAME = 'certificates';
-        
-        let uploadTargetIndex = null;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategic Operations</title>
 
-        // Standard Default Setpoints mapped to the newest high-res files
-        const DEFAULT_AWARDS = [
-            {
-                id: 'best_website',
-                title: 'Best in Website Design',
-                src: 'best in website_6.jpg',
-                badge: 'Specialization Award',
-                badgeStyle: 'text-rose-600 bg-rose-50 border-rose-100',
-                desc: 'Recognizing outstanding achievement in landing page configuration and design alignment.',
-                fullDesc: 'Demonstrated excellence and technical setup during the 5-Day GVA In-Person Training.'
-            },
-            {
-                id: 'best_transcription',
-                title: 'Best in Transcription',
-                src: 'best in transcription_5.jpg',
-                badge: 'Specialization Award',
-                badgeStyle: 'text-rose-600 bg-rose-50 border-rose-100',
-                desc: 'Exceptional performance in processing audio-to-text with precision and speed.',
-                fullDesc: 'Honored for speed, accuracy, and format standards in training.'
-            },
-            {
-                id: 'best_collaboration',
-                title: 'Most Collaborative',
-                src: 'best in collaboration_5.jpg',
-                badge: 'Team Culture Award',
-                badgeStyle: 'text-indigo-600 bg-indigo-50 border-indigo-100',
-                desc: 'Awarded for demonstration of leadership, empathy, and excellent teamwork qualities.',
-                fullDesc: 'Commended for outstanding collaborative and peer support principles.'
-            },
-            {
-                id: 'best_telemarketing',
-                title: 'Best in Telemarketing',
-                src: 'best in telemarketing_5.jpg',
-                badge: 'Specialization Award',
-                badgeStyle: 'text-rose-600 bg-rose-50 border-rose-100',
-                desc: 'Acknowledge of excellence in communication strategy, presentation, and outbound handling.',
-                fullDesc: 'Recognized for client communications and active outbound performance.'
-            }
-        ];
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        let awards = [];
-<!-- ... existing code ... -->
-```eof
+<style>
 
-### What has been updated:
-1. **New Image Baselines:** The standard template sources are now globally hardcoded to target `best in website_6.jpg`, `best in transcription_5.jpg`, `best in collaboration_5.jpg`, and `best in telemarketing_5.jpg`.
-2. **Persistence Safeguards:** If you had previous uploads saved in your browser cache, you can click the **Reset Showcase** button at the top-right to instantly flush the old database keys and force-reload these newly assigned image files.
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f7f8fc;
+}
+
+.section{
+    width:90%;
+    max-width:1200px;
+    margin:80px auto;
+}
+
+.heading{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.heading h4{
+    color:#6b7280;
+    font-weight:500;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.heading h1{
+    font-size:50px;
+    color:#1f2937;
+    margin-top:10px;
+}
+
+.heading p{
+    width:60%;
+    margin:15px auto;
+    color:#6b7280;
+    line-height:1.8;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.icon{
+    width:65px;
+    height:65px;
+    background:#1f2937;
+    color:white;
+    border-radius:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    margin-bottom:25px;
+}
+
+.card h2{
+    color:#111827;
+    margin-bottom:20px;
+}
+
+.card ul{
+    list-style:none;
+}
+
+.card ul li{
+    margin:18px 0;
+    color:#4b5563;
+    font-size:17px;
+    position:relative;
+    padding-left:22px;
+}
+
+.card ul li::before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    color:#10b981;
+    font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="section">
+
+<div class="heading">
+<h4>Core Expertise</h4>
+<h1>Strategic Operations</h1>
+
+<p>
+Delivering organized administrative support through efficient calendar management,
+administration, and professional document preparation.
+</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">📅</div>
+<h2>Calendar Management</h2>
+
+<ul>
+<li>Appointment Scheduling</li>
+<li>Meeting Coordination</li>
+<li>Travel Planning</li>
+<li>Time Management</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<div class="icon">📂</div>
+<h2>Administration</h2>
+
+<ul>
+<li>Email Management</li>
+<li>File Organization</li>
+<li>Data Entry</li>
+<li>Task Coordination</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<div class="icon">📄</div>
+<h2>Document Preparation</h2>
+
+<ul>
+<li>Reports</li>
+<li>Presentations</li>
+<li>Spreadsheets</li>
+<li>Business Documents</li>
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
